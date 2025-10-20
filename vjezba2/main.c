@@ -1,1 +1,6 @@
-#include <stdio.h>\nint main(){printf(Pozdrav);return 0;}
+#include <stdio.h>
+
+int main(){
+	printf("Pozdrav"); 
+	return 0; 
+}
