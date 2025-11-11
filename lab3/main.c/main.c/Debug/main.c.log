@@ -1,2 +1,12 @@
 ﻿  main.c.cpp
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(39,12): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(49,12): warning C4566: character represented by universal-character-name '\u010D' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(59,12): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(65,12): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(92,12): warning C4566: character represented by universal-character-name '\u010D' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(95,12): warning C4566: character represented by universal-character-name '\u010D' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(168,16): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(185,16): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(208,16): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
+C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\main.c\main.c.cpp(298,12): warning C4566: character represented by universal-character-name '\u010D' cannot be represented in the current code page (1252)
   main.c.vcxproj -> C:\Users\Lenovo\Desktop\strukture podataka\lab3\main.c\Debug\main.c.exe

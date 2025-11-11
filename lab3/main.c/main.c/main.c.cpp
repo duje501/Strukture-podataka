@@ -28,15 +28,15 @@ Person* readFromFile(const char* fileName);
 Person* createPerson() {
     Person* newPerson = (Person*)malloc(sizeof(Person));
     if (!newPerson) {
-        printf("Memory allocation failed!\n");
+        printf("Greška pri alokaciji memorije!\n");
         return NULL;
     }
 
-    printf("Enter first name: ");
+    printf("Unesi ime: ");
     scanf("%s", newPerson->firstName);
-    printf("Enter last name: ");
+    printf("Unesi prezime: ");
     scanf("%s", newPerson->lastName);
-    printf("Enter birth year: ");
+    printf("Unesi godinu rođenja: ");
     scanf("%d", &newPerson->birthYear);
     newPerson->next = NULL;
 
@@ -46,56 +46,56 @@ Person* createPerson() {
 int main() {
     Person* head = NULL;
 
-    printf("Adding two people at beginning:\n");
+    printf("Dodavanje dvoje osoba na početak:\n");
     head = addAtBeginning(head);
     head = addAtBeginning(head);
 
-    printf("\nAdding one person at the end:\n");
+    printf("\nDodavanje jedne osobe na kraj:\n");
     head = addAtEnd(head);
 
-    printf("\nCurrent list:\n");
+    printf("\nTrenutna lista:\n");
     printList(head);
 
-    printf("\nAdd new person AFTER specific last name:\n");
+    printf("\nDodavanje nove osobe IZA određene osobe:\n");
     char afterLastName[MAX_LENGTH];
-    printf("Enter last name after which to insert: ");
+    printf("Unesi prezime osobe iza koje želiš dodati novu osobu: ");
     scanf("%s", afterLastName);
     head = addAfter(head, afterLastName);
 
-    printf("\nAdd new person BEFORE specific last name:\n");
+    printf("\nDodavanje nove osobe ISPRED određene osobe:\n");
     char beforeLastName[MAX_LENGTH];
-    printf("Enter last name before which to insert: ");
+    printf("Unesi prezime osobe ispred koje želiš dodati novu osobu: ");
     scanf("%s", beforeLastName);
     head = addBefore(head, beforeLastName);
 
-    printf("\nList after adding elements:\n");
+    printf("\nLista nakon dodavanja elemenata:\n");
     printList(head);
 
-    printf("\nSorting list by last names...\n");
+    printf("\nSortiranje liste po prezimenima...\n");
     head = sortByLastName(head);
 
-    printf("\nSorted list:\n");
+    printf("\nSortirana lista:\n");
     printList(head);
 
-    printf("\nDeleting one person:\n");
+    printf("\nBrisanje osobe iz liste:\n");
     char delLastName[MAX_LENGTH];
-    printf("Enter last name to delete: ");
+    printf("Unesi prezime osobe koju želiš obrisati: ");
     scanf("%s", delLastName);
     head = deleteByLastName(head, delLastName);
 
-    printf("\nList after deletion:\n");
+    printf("\nLista nakon brisanja:\n");
     printList(head);
 
-    printf("\nWriting list to file 'osobe.txt'...\n");
+    printf("\nUpis liste u datoteku 'osobe.txt'...\n");
     writeToFile(head, "osobe.txt");
 
-    printf("\nReading list from file 'osobe.txt'...\n");
+    printf("\nUčitavanje liste iz datoteke 'osobe.txt'...\n");
     Person* fileList = readFromFile("osobe.txt");
 
-    printf("\nList read from file:\n");
+    printf("\nLista učitana iz datoteke:\n");
     printList(fileList);
 
-    // Oslobodi memoriju
+    // Oslobađanje memorije
     Person* temp;
     while (head) {
         temp = head;
@@ -108,13 +108,11 @@ int main() {
         free(temp);
     }
 
-    printf("\nProgram finished.\n");
+    printf("\nProgram je završio s radom.\n");
     return 0;
 }
 
-// -------------------------------------------
-// Implementacija funkcija
-// -------------------------------------------
+// Funkcije
 
 Person* addAtBeginning(Person* head) {
     Person* newPerson = createPerson();
@@ -137,7 +135,7 @@ Person* addAtEnd(Person* head) {
 
 void printList(Person* head) {
     if (head == NULL) {
-        printf("The list is empty.\n");
+        printf("Lista je prazna.\n");
         return;
     }
     Person* temp = head;
@@ -167,7 +165,7 @@ Person* deleteByLastName(Person* head, const char* lastName) {
     }
 
     if (!temp) {
-        printf("Person not found.\n");
+        printf("Osoba nije pronađena.\n");
         return head;
     }
 
@@ -177,14 +175,14 @@ Person* deleteByLastName(Person* head, const char* lastName) {
         prev->next = temp->next;
 
     free(temp);
-    printf("Person deleted.\n");
+    printf("Osoba je obrisana.\n");
     return head;
 }
 
 Person* addAfter(Person* head, const char* lastName) {
     Person* found = findByLastName(head, lastName);
     if (!found) {
-        printf("Person not found.\n");
+        printf("Osoba nije pronađena.\n");
         return head;
     }
     Person* newPerson = createPerson();
@@ -207,7 +205,7 @@ Person* addBefore(Person* head, const char* lastName) {
     }
 
     if (!curr) {
-        printf("Person not found.\n");
+        printf("Osoba nije pronađena.\n");
         return head;
     }
 
@@ -230,7 +228,6 @@ Person* sortByLastName(Person* head) {
 
         while (ptr1->next != lptr) {
             if (strcmp(ptr1->lastName, ptr1->next->lastName) > 0) {
-                // zamijeni podatke
                 char tempFirst[MAX_LENGTH], tempLast[MAX_LENGTH];
                 int tempYear;
 
@@ -259,7 +256,7 @@ Person* sortByLastName(Person* head) {
 void writeToFile(Person* head, const char* fileName) {
     FILE* f = fopen(fileName, "w");
     if (!f) {
-        printf("Error opening file!\n");
+        printf("Greška pri otvaranju datoteke!\n");
         return;
     }
 
@@ -269,13 +266,13 @@ void writeToFile(Person* head, const char* fileName) {
     }
 
     fclose(f);
-    printf("List written to '%s'.\n", fileName);
+    printf("Lista je zapisana u datoteku '%s'.\n", fileName);
 }
 
 Person* readFromFile(const char* fileName) {
     FILE* f = fopen(fileName, "r");
     if (!f) {
-        printf("Error opening file!\n");
+        printf("Greška pri otvaranju datoteke!\n");
         return NULL;
     }
 
@@ -298,6 +295,9 @@ Person* readFromFile(const char* fileName) {
     }
 
     fclose(f);
+    printf("Lista je učitana iz datoteke '%s'.\n", fileName);
     return head;
 }
 
+
+ 
